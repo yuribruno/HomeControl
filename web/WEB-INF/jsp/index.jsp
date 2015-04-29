@@ -9,21 +9,24 @@
     </head>
 
     <body>
-        <form action="" method="post" style="font-size: 12pt; alignment-adjust: middle">
-            <table>
-                <tr>
-                    <td>E-mail:</td><td><input type="email" name="email">                    
-                </tr>
-                <tr>
-                    <td>Senha:</td><td><input type="password" name="senha">                    
-                </tr>
-                <tr>
-                    <td><input  type="submit" value="entrar"></td>
-                </tr>
-                <tr>
-                    <td><a href="cadastro.jsp">Novo Cadastro</a></td>
-                </tr>
-            </table>
-        </form>
+        <div align="center">
+            <form action="validar.jsp" method="post" style="font-size: 12pt; alignment-adjust: middle">
+                <table>
+                    <tr>
+                        <td>E-mail:</td><td><input type="email" name="email">                    
+                    </tr>
+                    <tr>
+                        <td>Senha:</td><td><input type="password" name="senha">                    
+                    </tr>                    
+                </table>
+                <table align="center">
+                    <tr>
+                        <td><input  type="submit" value="Entrar" name="botao"></td>
+                        <td><input  type="submit" value="Novo Cadastro" name="botao"></td>
+                    </tr>
+                </table>
+            </form>
+            <head id="valida"></head>
+        </div>
     </body>
 </html>
