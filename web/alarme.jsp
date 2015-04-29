@@ -1,6 +1,6 @@
 <%-- 
-    Document   : menuUser
-    Created on : 28/04/2015, 23:02:43
+    Document   : alarme
+    Created on : 29/04/2015, 07:20:05
     Author     : Yuri Bruno
 --%>
 
@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div align="center">
-            <h1>Menu Usuário</h1>
-            <table border="0" cellspacing="2" cellpadding="2">
+         <div align="center">
+            <h1>Alarme</h1>
+            <table border="0" cellspacing="10" cellpadding="10">
                 <thead>
                     <tr>
                         <th></th>
@@ -22,16 +22,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="submit" value="Alarme" name="telaAlarme" /></td>
+                        <td><input type="radio" name="status" value="ativado" />Ativado<br></td>
+                        <td><input type="radio" name="status" value="desativado" checked/>Desativado<br></td>
                     </tr>
                     <tr>
-                        <td>Pagina 2</td>
-                    </tr>
-                    <tr>
-                        <td>Pagina 3</td>
-                    </tr>
-                    <tr>
-                        <td>Pagina 4</td>
+                        <td><input type="submit" value="Ativar" name="ativar" /></td>
+                        <td><input type="submit" value="Desativar" name="desativar" /></td>
                     </tr>
                 </tbody>
             </table>
