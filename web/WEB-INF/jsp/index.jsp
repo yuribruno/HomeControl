@@ -8,16 +8,16 @@
         <title>HomeControl</title>
     </head>
 
-    <body>
+    <body>            
         <div align="center">
-            <form action="validar.jsp" method="post" style="font-size: 12pt; alignment-adjust: middle">
+            <form action="LoginServlet" method="post" style="font-size: 12pt; alignment-adjust: middle">
                 <table>
                     <tr>
                         <td>E-mail:</td><td><input type="email" name="email">                    
                     </tr>
                     <tr>
                         <td>Senha:</td><td><input type="password" name="senha">                    
-                    </tr>                    
+                    </tr>
                 </table>
                 <table align="center">
                     <tr>
@@ -26,7 +26,6 @@
                     </tr>
                 </table>
             </form>
-            <head id="valida"></head>
         </div>
     </body>
 </html>
