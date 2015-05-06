@@ -163,7 +163,133 @@
                                 </div>
                             </div>
                             <div class="panel" id="alocar">
-
+                                <div align="center">
+                                    <input type="text" name="buscaCliente" value="" size="50" />
+                                    <input type="submit" value="Buscar" name="buscaCliente" />
+                                    
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                        <h1 style="margin-top: 30px " align="left">Clientes:</h1>
+                                            </tr>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>E-mail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Felipe Ribeiro</td>
+                                                <td>felipe@gmail.com</td>
+                                                <td> <input type="submit" value="Selecionar" name="cliente" onclick="location.href='#cliente'"/> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel" id="cliente">
+                                <input type="submit" value="Voltar" name="voltarPagina" />
+                                <div align="center">
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente: Felipe Ribeiro</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#historico">Consultar Histórico de pagamentos</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="#alocarServ">Alocar Plano de Serviços</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel" id="historico">
+                                <input type="submit" value="Voltar" name="voltarPagina" />
+                                <div align="center">
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente: Felipe Ribeiro</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Data</th>
+                                                <th>Situação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>01/05/20115</td>
+                                                <td>Em aberto</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/04/20115</td>
+                                                <td>Pago</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/03/20115</td>
+                                                <td>Pago</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/02/20115</td>
+                                                <td>Pago</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel" id="alocarServ">
+                                <input type="submit" value="Voltar" name="voltarPagina" />
+                                <div align="center">
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente: Felipe Ribeiro</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Serviço</td>
+                                                <td>Manutenção</td>
+                                                <td>Instalação</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lâmpada</td>
+                                                <td>R$ 2,00</td>
+                                                <td>R$ 5,00</td>
+                                                <td>Desabilitar</td>
+                                                <td> <input type="submit" value="Editar" name="editar" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Porta</td>
+                                                <td>R$ 5,50</td>
+                                                <td>R$ 55,00</td>
+                                                <td>Desabilitar</td>
+                                                <td> <input type="submit" value="Editar" name="editar" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alarme</td>
+                                                <td>R$ 5,00</td>
+                                                <td>R$ 50,00</td>
+                                                <td>Desabilitar</td>
+                                                <td> <input type="submit" value="Editar" name="editar" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ar condicionado</td>
+                                                <td>R$ 10,00</td>
+                                                <td>R$ 150,00</td>
+                                                <td>Desabilitar</td>
+                                                <td> <input type="submit" value="Editar" name="editar" /> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-top: 30px">
+                                    <input type="submit" value="Alocar Novo Serviço" name="alocarNovo" />
+                                </div>
                             </div>
                         </div>
                     </div>

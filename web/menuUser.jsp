@@ -408,10 +408,54 @@
                                 </div>
                             </div>
                             <div class="panel" id="servicos">
-
-                            </div>
-                            <div class="panel" id="contactus">
-
+                                <div align="center">
+                                    <table border="1">
+                                        <thead>
+                                            <tr>
+                                                <td>Serviço</td>
+                                                <td>Manutenção</td>
+                                                <td>Instalação</td>
+                                                <td>Quantidade</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lâmpada</td>
+                                                <td>R$ 2,00</td>
+                                                <td>R$ 5,00</td>
+                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
+                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Porta</td>
+                                                <td>R$ 5,50</td>
+                                                <td>R$ 55,00</td>
+                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
+                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alarme</td>
+                                                <td>R$ 5,00</td>
+                                                <td>R$ 50,00</td>
+                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
+                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ar condicionado</td>
+                                                <td>R$ 10,00</td>
+                                                <td>R$ 150,00</td>
+                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
+                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div align="center">
+                                    <h3>Orçamento: </h3>
+                                    <textarea name="Orçamento" rows="4" cols="20" readonly="readonly">
+                                    </textarea>
+                                    <input type="submit" value="Efetivar orçamento" name="orcamento" />
+                                </div>
                             </div>
                         </div>
                     </div>
