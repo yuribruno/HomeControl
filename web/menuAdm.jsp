@@ -20,7 +20,7 @@
         <script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
         
-        <title>JSP Page</title>
+        <title>Home Control</title>
     </head>
     <body>
         <div id="slider">

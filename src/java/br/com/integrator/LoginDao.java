@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.jms.ConnectionFactory;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
  *
@@ -28,12 +30,37 @@ public class LoginDao {
             
             ResultSet rs = ps.executeQuery();
             status = rs.next();
+            rs.close();
+            
+            System.out.println("Validado!");
         
         } catch(Exception E){
             System.out.println(E);
         }
          
         return status;        
+    }
+    
+    public static boolean cadastro(String email, String senha, String cpf){
+        boolean status = false;
+        
+        try{
+            Class.forName("PostgreSQL");
+            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/HomeControl", "postgres", "yuriengcomp153");
+            
+            PreparedStatement ps = con.prepareStatement("insert into usuario" + "(dafault,email,senha,cpf)");
+            ps.setString(1, email);
+            ps.setString(2, senha);
+            ps.setString(3, cpf);
+            
+            ResultSet rs = ps.executeQuery();
+            status = rs.next();
+            rs.close();
+            
+        } catch(Exception E){
+            System.out.println(E);
+        }
+        return status;
     }
     
 }

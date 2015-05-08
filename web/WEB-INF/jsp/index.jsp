@@ -33,7 +33,7 @@
                         <div class="scrollContainer">
                             <div class="panel" id="login">
                                 <div align="center">
-                                    <form action="" method="" style="font-size: 12pt; alignment-adjust: middle">
+                                    <form action="LoginServlet" method="post" style="font-size: 12pt; alignment-adjust: middle">
                                         <table>
                                             <tr>
                                                 <td>E-mail:</td><td><input type="email" name="email">                    
@@ -53,7 +53,7 @@
                             </div>
                             <div class="panel" id="cadastro">
                                 <div align="center">
-                                    <form action="validar.jsp" method="post" style="font-size: 12pt; alignment-adjust: middle">
+                                    <form action="CadastroServlet" method="post" style="font-size: 12pt; alignment-adjust: middle">
                                         <table>
                                             <tr>
                                                 <td>E-mail:</td><td><input type="email" name="email">                    

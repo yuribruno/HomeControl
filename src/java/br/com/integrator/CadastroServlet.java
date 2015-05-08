@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Yuri Bruno
  */
-public class LoginServlet extends HttpServlet {
+public class CadastroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,12 +36,13 @@ public class LoginServlet extends HttpServlet {
         
         String s_email = request.getParameter("email");
         String s_senha = request.getParameter("senha");
+        String s_cpf = request.getParameter("cpf");
         
-        if(LoginDao.validate(s_email, s_senha)){
-            out.print("test");
-            RequestDispatcher rd = request.getRequestDispatcher("menuAdm.jsp");
+        if(LoginDao.cadastro(s_email, s_senha, s_cpf)){
+            out.print("Usuario cadastrado!");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         } else {
-            out.print("Usuário ou senha inválida!");
+            out.print("Usuário já cadastrado!");
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         }
     }

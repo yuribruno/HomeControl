@@ -234,6 +234,7 @@
                                                 <th>Sensor</th>
                                                 <th>Data da ultima verificação</th>
                                                 <th>Hora</th>
+                                                <th>Estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -241,18 +242,21 @@
                                                 <td>Sensor de Presença</td>
                                                 <td>05/05/2015</td>
                                                 <td>10:05</td>
+                                                <td>Ativo</td>
                                                 <td><a href="#presenca">Listar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Sensor de Temperatura</td>
                                                 <td>05/05/2015</td>
                                                 <td>10:05</td>
+                                                <td>Ativo</td>
                                                 <td><a href="#temperatura">Listar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Sensor de Luminosidade</td>
                                                 <td>05/05/2015</td>
                                                 <td>10:05</td>
+                                                <td>Ativo</td>
                                                 <td><a href="#luminosidade">Listar</a></td>
                                             </tr>
                                         </tbody>
