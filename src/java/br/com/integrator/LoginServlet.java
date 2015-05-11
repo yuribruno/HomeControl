@@ -6,6 +6,8 @@
 
 package br.com.integrator;
 
+import br.com.dao.LoginDao;
+import br.com.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -37,12 +39,14 @@ public class LoginServlet extends HttpServlet {
         String s_email = request.getParameter("email");
         String s_senha = request.getParameter("senha");
         
-        if(LoginDao.validate(s_email, s_senha)){
-            out.print("test");
-            RequestDispatcher rd = request.getRequestDispatcher("menuAdm.jsp");
+        Usuario busca = new Usuario();
+        busca.setEmail(s_email);
+        busca.setSenha(s_senha);
+        
+        if(LoginDao.validate(busca)){
+            response.sendRedirect("menuUser.jsp");
         } else {
-            out.print("Usuário ou senha inválida!");
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            request.setAttribute("Errormessage", "test");
         }
     }
 

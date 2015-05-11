@@ -1,7 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-
+<% 
+    String message=(String)request.getAttribute("Errormessage"); 
+    if(message==null){ 
+        message = " "; 
+    } 
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -44,11 +49,14 @@
                                         </table>
                                         <table align="center">
                                             <tr>
-                                                <td><input  type="submit" value="Entrar" name="botao"></td>
+                                                <td><input  type="submit" value="Entrar"></td>
                                                 <td><input  type="button" value="Novo Cadastro" name="botao" onclick="location.href='#cadastro'"></td>
                                             </tr>
                                         </table>
                                     </form>
+                                    <div>
+                                        <%=message%> 
+                                    </div>
                                 </div>
                             </div>
                             <div class="panel" id="cadastro">

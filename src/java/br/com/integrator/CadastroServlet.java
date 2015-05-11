@@ -6,6 +6,8 @@
 
 package br.com.integrator;
 
+import br.com.dao.CadastroDao;
+import br.com.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -38,11 +40,14 @@ public class CadastroServlet extends HttpServlet {
         String s_senha = request.getParameter("senha");
         String s_cpf = request.getParameter("cpf");
         
-        if(LoginDao.cadastro(s_email, s_senha, s_cpf)){
-            out.print("Usuario cadastrado!");
+        Usuario novo = new Usuario();
+        novo.setEmail(s_email);
+        novo.setSenha(s_senha);
+        novo.setCpf(s_cpf);
+        
+        if(CadastroDao.cadastrar(novo)==true){
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-        } else {
-            out.print("Usuário já cadastrado!");
+        } else{
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         }
     }
