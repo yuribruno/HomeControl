@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
         if(LoginDao.validate(busca)){
             response.sendRedirect("menuUser.jsp");
         } else {
-            request.setAttribute("Errormessage", "test");
+            
         }
     }
 
