@@ -19,7 +19,7 @@ body {
 	font-size: 12px;
 	line-height: 1.5em; 
 	background-color: #2f2e28;
-	background-image: url(images/templatemo_body.jpg);
+	background-image: url(../images/templatemo_body.jpg);
 	background-repeat: repeat-y;
 	background-position: left;
 }
@@ -88,8 +88,8 @@ em { color: #f9a834; }
 
 #contact_form { padding: 0; }
 #contact_form form { margin: 0px; padding: 0px; }
-#contact_form form .input_field { width: 440px; padding: 8px; background: #333028; border: 1px solid #886; color: #FFF; }
-#contact_form form label { display: block; width: 100px; margin-right: 10px; font-size: 14px; margin-bottom: 3px; }
+#contact_form form .input_field { width: 100%; padding: 4px; background: #333028; border: 1px solid #886; color: #886; }
+#contact_form form label { display: block; font-size: 12px;  }
 
 #contact_form form textarea { 
 	width: 440px;  
@@ -106,7 +106,7 @@ em { color: #f9a834; }
 	background: #333028;
 	border: 1px solid #886;
 	padding: 10px 20px;
-	margin-right: 140px;
+        margin-top: 10px;
 	font-size: 15px;
 }
 
@@ -142,4 +142,6 @@ em { color: #f9a834; }
 	padding: 20px 0;
 	text-align: center;
 }
+
+
 

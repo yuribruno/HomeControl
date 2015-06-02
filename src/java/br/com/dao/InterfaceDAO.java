@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.infra;
+package br.com.dao;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,9 +12,9 @@ import java.util.List;
 /**
  *
  * @author Yuri Bruno
+ * @param <T>
  */
-public interface DAO <T>{
-    
+public interface InterfaceDAO <T>{
     public void adiciona (T entidade) throws SQLException;
     
     public void altera (T entidade) throws SQLException;
@@ -24,4 +24,8 @@ public interface DAO <T>{
     public T lista(String pesquisa) throws SQLException;
     
     public List<T>listaTudo()throws SQLException;
+    
+    public boolean pesquisa(String pesquisaA, String pesquisaB) throws SQLException;
+    
+    public String tipo(String pesquisaA, String pesquisaB) throws SQLException;
 }

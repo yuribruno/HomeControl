@@ -8,6 +8,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%
+            //allow access only if session exists
+            String user = null;
+            if(session.getAttribute("email") == null){
+                response.sendRedirect("redirect.jsp");
+            }else user = (String) session.getAttribute("email");
+            String userName = null;
+            String sessionID = null;
+            Cookie[] cookies = request.getCookies();
+            if(cookies !=null){
+                for(Cookie cookie : cookies){
+                    if(cookie.getName().equals("email")) userName = cookie.getValue();
+                    if(cookie.getName().equals("email")) sessionID = cookie.getValue();
+                }
+            }
+        %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <link href="CSS/hc-template.css" rel="stylesheet" type="text/css" />
@@ -20,7 +36,7 @@
         <script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
         
-        <title>Home Control</title>
+        <title>Home Control - <%=userName%></title>
     </head>
     <body>
         <div id="slider">
@@ -35,6 +51,7 @@
                     <li><a href="#dispositivos">Dispositivos<span class="ui_icon aboutus"></span></a></li>
                     <li><a href="#dados">Dados<span class="ui_icon services"></span></a></li>
                     <li><a href="#servicos">Serviços<span class="ui_icon gallery"></span></a></li>
+                    <li><a href="#logout">Sair<span class="ui_icon gallery"></span></a></li>
                 </ul>
             </div> <!-- end of sidebar -->
 
@@ -461,16 +478,18 @@
                                     <input type="submit" value="Efetivar orçamento" name="orcamento" />
                                 </div>
                             </div>
+                            <div class="panel" id="logout">
+                                <div align="center">
+                                    <form action="LogoutServlet" method="post">
+                                        <h1>Até a proxima!</h1>
+                                        <input type="submit" value="Sair">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- end of content -->
-        
-            <div id="templatemo_footer">
-
-                Copyright © 2048 <a href="#">Home Control</a> | by <a href="" target="_parent">Yuri Bruno</a>
-
-            </div> <!-- end of templatemo_footer -->
         </div> <!-- end of main -->
     </body>
 </html>

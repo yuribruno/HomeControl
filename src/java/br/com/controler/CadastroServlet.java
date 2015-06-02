@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 
-package br.com.integrator;
+package br.com.controler;
 
-import br.com.dao.LoginDao;
+import br.com.dao.UsuarioDAO;
 import br.com.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Yuri Bruno
  */
-public class LoginServlet extends HttpServlet {
+public class CadastroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +36,17 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        String s_email = request.getParameter("email");
-        String s_senha = request.getParameter("senha");
-        
-        Usuario busca = new Usuario();
-        busca.setEmail(s_email);
-        busca.setSenha(s_senha);
-        
-        if(LoginDao.validate(busca)){
-            response.sendRedirect("menuUser.jsp");
-        } else {
-            
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CadastroServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CadastroServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -76,7 +76,33 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario novo = new Usuario();
+        
+        novo.setNome(request.getParameter("nome"));
+        novo.setSnome(request.getParameter("snome"));
+        novo.setCep(request.getParameter("cep"));
+        novo.setEndereco(request.getParameter("endereco"));
+        novo.setCidade(request.getParameter("cidade"));
+        novo.setEstado(request.getParameter("estado"));
+        novo.setBairro(request.getParameter("bairro"));
+        novo.setNumero(request.getParameter("numero"));
+        novo.setComplemento(request.getParameter("complemento"));
+        novo.setRg(request.getParameter("rg"));
+        novo.setCpf(request.getParameter("cpf"));
+        novo.setCel(request.getParameter("tel"));
+        novo.setEmail(request.getParameter("email"));
+        novo.setSenha(request.getParameter("senha"));
+        novo.setDateNasc(request.getParameter("data"));
+        try {
+            dao.adiciona(novo);
+            out.print("Usuário cadastrado com sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }           
     }
 
     /**

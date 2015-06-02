@@ -14,11 +14,15 @@
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>br.com.integrator.LoginServlet</servlet-class>
+        <servlet-class>br.com.controler.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroServlet</servlet-name>
-        <servlet-class>br.com.integrator.CadastroServlet</servlet-class>
+        <servlet-class>br.com.controler.CadastroServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>br.com.controler.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>CadastroServlet</servlet-name>
         <url-pattern>/CadastroServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
