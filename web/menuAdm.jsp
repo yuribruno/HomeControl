@@ -4,6 +4,9 @@
     Author     : Yuri Bruno
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,6 +41,7 @@
         
         <title>Home Control - <%=userName%></title>
     </head>
+    <jsp:useBean id="dao" class="br.com.dao.ServicoDAO" />
     <body>
         <div id="slider">
             <div id="templatemo_sidebar">
@@ -70,35 +74,133 @@
                                                 <th>Custo de Instalação</th>
                                                 <th>Custo de Manutenção</th>
                                                 <th>Disponibilidade</th>
-                                                <th>Tipo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:forEach var="servico" items="${dao.listaTudo()}">
+                                                <tr>
+                                                    <td>
+                                                        ${servico.nome}
+                                                    </td>
+                                                    <td>
+                                                        ${servico.descricao}
+                                                    </td>
+                                                    <td>
+                                                        ${servico.custoInstalacao}
+                                                    </td>
+                                                    <td>
+                                                        ${servico.custoManutencao}
+                                                    </td>
+                                                    <td>
+                                                        ${servico.disponibilidade}
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                        <table align="center">
                                             <tr>
                                                 <td>
-                                                    
+                                                    <input  type="button" value="Novo Serviço" name="botao" onclick="location.href='#cadastrarNovo'" class="submit_btn">
                                                 </td>
                                                 <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <input type="button" name="editar" value="Editar" id="editserv">
+                                                    <input  type="button" value="Editar Serviço" name="botao" onclick="location.href='#editarServico'" class="submit_btn">
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </table>
                                     </table>
                                 </div>
                             </div>  
                             <div class="panel" id="cadastrarNovo">
+                                <div align="center" id="contact_form">
+                                    <form action="CadastroServicoServlet" method="post" id="cadastroservico">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Nome</label>
+                                                    <input type="text" name="nome" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Descrição</label>
+                                                    <textarea name="descricao" rows="4" cols="20">
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Custo de Instalação</label>
+                                                    <input type="text" name="custoInstalacao" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Custo de Manutenção</label>
+                                                    <input type="text" name="custoManutencao" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Disponibilidade</label>
+                                                    <input type="text" name="disponibilidade" class="required input_field">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table align="center">
+                                            <tr>
+                                                <td>
+                                                    <input  type="submit" value="Cadastrar" class="submit_btn">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="panel" id="editarServico">
+                                <div align="center" id="contact_form">
+                                    <form action="EditarServicoServlet" method="post" id="cadastroservico">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label>Nome</label>
+                                                    <input type="text" name="nome" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Descrição</label>
+                                                    <textarea name="descricao" rows="4" cols="20">
+                                                    </textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Custo de Instalação</label>
+                                                    <input type="text" name="custoInstalacao" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Custo de Manutenção</label>
+                                                    <input type="text" name="custoManutencao" class="required input_field">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>Disponibilidade</label>
+                                                    <input type="text" name="disponibilidade" class="required input_field">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table align="center">
+                                            <tr>
+                                                <td>
+                                                    <input  type="submit" value="Editar" class="submit_btn">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
                             </div>
                             <div class="panel" id="alocar">
                             </div>

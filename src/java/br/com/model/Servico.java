@@ -11,30 +11,14 @@ package br.com.model;
  * @author Yuri Bruno
  */
 public class Servico {
-    private String id;
     private String nome;
     private String descricao;
     private String custoInstalacao;
-    private String custoManutençao;
+    private String custoManutencao;
     private String Disponibilidade;
-    private String tipo;
     
     public Servico() {
         
-    }
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
     }
 
     /**
@@ -82,15 +66,15 @@ public class Servico {
     /**
      * @return the custoManutençao
      */
-    public String getCustoManutençao() {
-        return custoManutençao;
+    public String getCustoManutencao() {
+        return custoManutencao;
     }
 
     /**
-     * @param custoManutençao the custoManutençao to set
+     * @param custoManutencao the custoManutençao to set
      */
-    public void setCustoManutençao(String custoManutençao) {
-        this.custoManutençao = custoManutençao;
+    public void setCustoManutencao(String custoManutencao) {
+        this.custoManutencao = custoManutencao;
     }
 
     /**
@@ -107,19 +91,4 @@ public class Servico {
         this.Disponibilidade = Disponibilidade;
     }
 
-    /**
-     * @return the tipo
-     */
-    public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     * @param tipo the tipo to set
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
-    
 }

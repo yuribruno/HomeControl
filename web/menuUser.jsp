@@ -4,6 +4,9 @@
     Author     : Yuri Bruno
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,6 +41,7 @@
         
         <title>Home Control - <%=userName%></title>
     </head>
+    <jsp:useBean id="dao" class="br.com.dao.OrcamentoDAO" />
     <body>
         <div id="slider">
             <div id="templatemo_sidebar">
@@ -429,54 +433,14 @@
                                 </div>
                             </div>
                             <div class="panel" id="servicos">
-                                <div align="center">
-                                    <table border="1">
-                                        <thead>
-                                            <tr>
-                                                <td>Serviço</td>
-                                                <td>Manutenção</td>
-                                                <td>Instalação</td>
-                                                <td>Quantidade</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Lâmpada</td>
-                                                <td>R$ 2,00</td>
-                                                <td>R$ 5,00</td>
-                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
-                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Porta</td>
-                                                <td>R$ 5,50</td>
-                                                <td>R$ 55,00</td>
-                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
-                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alarme</td>
-                                                <td>R$ 5,00</td>
-                                                <td>R$ 50,00</td>
-                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
-                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ar condicionado</td>
-                                                <td>R$ 10,00</td>
-                                                <td>R$ 150,00</td>
-                                                <td> <input type="number" value="" name="quantidade" style="width: 50px"/> </td>
-                                                <td> <input type="checkbox" name="Selecionar" value="ON" /> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div align="center" id="contact_form">
+                                    <form action="OrcamentoServlet" method="post">
+                                        <h3>Peça já seu orçamento</h3>
+                                        <input type="textarea" name="mensagem" class="required textarea">
+                                        <input type="submit" name="enviar" value="Enviar Orçamento" class="required submit_btn">
+                                    </form>
                                 </div>
-                                <div align="center">
-                                    <h3>Orçamento: </h3>
-                                    <textarea name="Orçamento" rows="4" cols="20" readonly="readonly">
-                                    </textarea>
-                                    <input type="submit" value="Efetivar orçamento" name="orcamento" />
-                                </div>
+                                    
                             </div>
                             <div class="panel" id="logout">
                                 <div align="center">

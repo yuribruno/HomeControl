@@ -27,24 +27,20 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
 
     @Override
     public void adiciona(Servico entidade) throws SQLException {
-        String sql = "insert into servicos ("
-                + "id,"
+        String sql = "insert into servico ("
                 + "nome,"
                 + "descricao,"
                 + "custoInstalacao,"
                 + "custoManutencao,"
-                + "disponibilidade,"
-                + "tipo)"
-                + "values (?,?,?,?,?,?,?)";
+                + "disponibilidade)"
+                + "values (?,?,?,?,?)";
         
         try(PreparedStatement stmt = con.prepareStatement(sql)){
-            stmt.setString(1, entidade.getId());
-            stmt.setString(2, entidade.getNome());
-            stmt.setString(3, entidade.getDescricao());
-            stmt.setString(4, entidade.getCustoInstalacao());
-            stmt.setString(5, entidade.getCustoManutençao());
-            stmt.setString(6, entidade.getDisponibilidade());
-            stmt.setString(7, entidade.getTipo());
+            stmt.setString(1, entidade.getNome());
+            stmt.setString(2, entidade.getDescricao());
+            stmt.setString(3, entidade.getCustoInstalacao());
+            stmt.setString(4, entidade.getCustoManutencao());
+            stmt.setString(5, entidade.getDisponibilidade());
             
             stmt.executeUpdate();
         } catch(SQLException ex){
@@ -56,23 +52,21 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
 
     @Override
     public void altera(Servico entidade) throws SQLException {
-        String sql = "update servicos set "
+        String sql = "update servico set "
                 + "nome = ?,"
                 + "descricao = ?,"
                 + "custoInstalacao = ?,"
                 + "custoManutencao = ?,"
-                + "disponibilidade = ?,"
-                + "tipo = ?"
-                + "where id = ?";
+                + "disponibilidade = ?"
+                + "where nome = ?";
         
         try(PreparedStatement stmt = con.prepareStatement(sql)){
             stmt.setString(1, entidade.getNome());
             stmt.setString(2, entidade.getDescricao());
             stmt.setString(3, entidade.getCustoInstalacao());
-            stmt.setString(4, entidade.getCustoManutençao());
+            stmt.setString(4, entidade.getCustoManutencao());
             stmt.setString(5, entidade.getDisponibilidade());
-            stmt.setString(6, entidade.getTipo());
-            stmt.setString(7, entidade.getId());
+            stmt.setString(6, entidade.getNome());
             
             stmt.executeUpdate();
         } catch(SQLException ex){
@@ -90,23 +84,21 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
     @Override
     public Servico lista(String pesquisa) throws SQLException {
         Servico entidade = new Servico();
-        String sql = "select * from pessoa where id = ?";
+        String sql = "select * from servico where nome = ?";
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try{
             stmt = con.prepareStatement(sql);
             
-            stmt.setString(1, entidade.getId());
+            stmt.setString(1, entidade.getNome());
             rs = stmt.executeQuery();
             
             if(rs.next()){
-                entidade.setId(rs.getString("id"));
                 entidade.setNome(rs.getString("nome"));
                 entidade.setDescricao(rs.getString("descricao"));
                 entidade.setCustoInstalacao(rs.getString("custoInstalacao"));
-                entidade.setCustoManutençao(rs.getString("custoManutencao"));
+                entidade.setCustoManutencao(rs.getString("custoManutencao"));
                 entidade.setDisponibilidade(rs.getString("disponibilidade"));
-                entidade.setTipo(rs.getString("tipo"));
             }
         } catch (SQLException ex){
             throw new RuntimeException(ex);
@@ -122,7 +114,7 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
     @Override
     public List<Servico> listaTudo() throws SQLException {
         List<Servico>servicos = new ArrayList<Servico>();
-        String sql = "select * from usuario";
+        String sql = "select * from servico";
         PreparedStatement stmt = null;
         ResultSet rs = null;
         
@@ -130,24 +122,21 @@ public class ServicoDAO implements InterfaceDAO<Servico>{
             stmt = con.prepareStatement(sql);
             
             rs = stmt.executeQuery();
-            Servico entidade = null;
             
-            while(rs.next()){ 
-                entidade.setId(rs.getString("id"));
+            while(rs.next()){
+                Servico entidade = new Servico();
                 entidade.setNome(rs.getString("nome"));
                 entidade.setDescricao(rs.getString("descricao"));
                 entidade.setCustoInstalacao(rs.getString("custoInstalacao"));
-                entidade.setCustoManutençao(rs.getString("custoManutencao"));
+                entidade.setCustoManutencao(rs.getString("custoManutencao"));
                 entidade.setDisponibilidade(rs.getString("disponibilidade"));
-                entidade.setTipo(rs.getString("tipo"));
                 
                 servicos.add(entidade);
             }
+            System.out.println(servicos.get(1).getCustoInstalacao());
         } catch (SQLException ex){
             throw new RuntimeException(ex);
         } finally{
-            stmt.close();
-            rs.close();
             con.close();
         }
         

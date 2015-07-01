@@ -24,6 +24,22 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>br.com.controler.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastroServicoServlet</servlet-name>
+        <servlet-class>br.com.controler.CadastroServicoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarServicosServlet</servlet-name>
+        <servlet-class>br.com.controler.ListarServicosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarServicoServlet</servlet-name>
+        <servlet-class>br.com.controler.EditarServicoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrcamentoServlet</servlet-name>
+        <servlet-class>br.com.controler.OrcamentoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -39,6 +55,22 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroServicoServlet</servlet-name>
+        <url-pattern>/CadastroServicoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarServicosServlet</servlet-name>
+        <url-pattern>/ListarServicosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarServicoServlet</servlet-name>
+        <url-pattern>/EditarServicoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrcamentoServlet</servlet-name>
+        <url-pattern>/OrcamentoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

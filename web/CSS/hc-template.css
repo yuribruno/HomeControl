@@ -91,9 +91,9 @@ em { color: #f9a834; }
 #contact_form form .input_field { width: 100%; padding: 4px; background: #333028; border: 1px solid #886; color: #886; }
 #contact_form form label { display: block; font-size: 12px;  }
 
-#contact_form form textarea { 
+#contact_form form .textarea { 
 	width: 440px;  
-	height: 120px; 
+	height: 100px; 
 	padding: 8px; 
 	background: #333028; 
 	font-family: Arial, Helvetica, sans-serif;	

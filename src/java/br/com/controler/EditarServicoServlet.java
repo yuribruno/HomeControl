@@ -6,26 +6,24 @@
 
 package br.com.controler;
 
-import br.com.dao.UsuarioDAO;
+import br.com.dao.ServicoDAO;
+import br.com.model.Servico;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Yuri Bruno
  */
-public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+public class EditarServicoServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,10 +41,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet EditarServicoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditarServicoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -81,35 +79,19 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
+        ServicoDAO dao = new ServicoDAO();
+        Servico editar = new Servico();
         
-        UsuarioDAO dao = new UsuarioDAO();
+        editar.setNome(request.getParameter("nome"));
+        editar.setDescricao(request.getParameter("descricao"));
+        editar.setCustoInstalacao(request.getParameter("custoInstalacao"));
+        editar.setCustoManutencao(request.getParameter("custoManutencao"));
+        editar.setDisponibilidade(request.getParameter("disponibilidade"));
         try {
-            String tipo = dao.tipo(email, senha);
-            System.out.println(tipo);
-            if("user".equals(tipo)){
-                HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                session.setMaxInactiveInterval(30*60);
-                Cookie userEmail = new Cookie("email", email);
-                response.addCookie(userEmail);
-                String encodedURL = response.encodeRedirectURL("menuUser.jsp");
-                response.sendRedirect(encodedURL);
-            }
-            else if ("adm".equals(tipo)){
-                HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                session.setMaxInactiveInterval(30*60);
-                Cookie loginCookie = new Cookie("email", email);
-                response.addCookie(loginCookie);
-                String encodedURL = response.encodeRedirectURL("menuAdm.jsp");
-                response.sendRedirect(encodedURL);
-            }else{
-                out.println("<font color=red>Usuário ou senha inválida!</font>");
-            }
+            dao.altera(editar);
+            out.print("Serviço editado com sucesso!");
         } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroServicoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
